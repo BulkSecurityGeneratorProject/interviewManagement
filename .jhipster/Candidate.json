@@ -1,0 +1,56 @@
+{
+    "name": "Candidate",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "phoneNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "currentCompany",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "experience",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "interview",
+            "otherEntityName": "interview",
+            "otherEntityRelationshipName": "candidate"
+        }
+    ],
+    "changelogDate": "20190527075358",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "candidate",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

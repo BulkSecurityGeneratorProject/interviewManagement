@@ -1,0 +1,35 @@
+// an ignored comment
+/** not an ignored comment */
+entity Candidate {
+	name String required
+	email String required
+	phoneNo String required
+	currentCompany String
+	experience Double
+    position String
+}
+entity Interview{
+	level String required
+    interviewDate LocalDate required
+    interviewerName String required
+    interviewerEmail String
+    interviewerPhone String
+    status String required
+    comments String
+    
+}
+// defining multiple OneToMany relationships with comments
+
+relationship OneToMany {
+	Candidate{interview} to Interview
+}
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
