@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.interview.core"
+        },
+        "jhipsterVersion": "5.8.1",
+        "applicationType": "monolith",
+        "baseName": "InterviewManagement",
+        "packageName": "com.interview.core",
+        "packageFolder": "com/interview/core",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": "elasticsearch",
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "ZDUwMzZkNWEwOWIwZTdjZGNiNTFiNzE1OTI2ZjkzZGNjNjZmN2NmMzk5ZTFjYWFiMTJiYjg5MjRmZDRkODA4YTZiZDZkMmE1NTY3YjUzMWQ3MTNlNWUwMDMyZjhlYWQyOWUwNjljYzgyN2Y0NGQ3OGZiODFmYWFlOTlkMmViMzE=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": ["protractor"],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
