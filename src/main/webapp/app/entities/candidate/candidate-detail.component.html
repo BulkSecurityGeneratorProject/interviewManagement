@@ -53,7 +53,7 @@
             <div class="row">
    
                     <div class="col-4" *ngFor="let interview of candidate.interviews">
-                        <div class="card">
+                        <div class="card" (click)="openLg(content,interview)">
                             <div class="card-header bg-info text-light">{{interview.level}}</div>
                             <div class="card-body bg-secondary text-light">
                                 status: {{interview.status}}<br>
@@ -64,3 +64,49 @@
     </div>
 </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Interview Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <dl class="row-md jh-entity-details">
+            <dt><span>Level</span></dt>
+            <dd>
+                <span>{{interview.level}}</span>
+            </dd>
+            <dt><span>Interview Date</span></dt>
+            <dd>
+                <span>{{interview.interviewDate}}</span>
+            </dd>
+            <dt><span>Interviewer Name</span></dt>
+            <dd>
+                <span>{{interview.interviewerName}}</span>
+            </dd>
+            <dt><span>Interviewer Email</span></dt>
+            <dd>
+                <span>{{interview.interviewerEmail}}</span>
+            </dd>
+            <dt><span>Interviewer Phone</span></dt>
+            <dd>
+                <span>{{interview.interviewerPhone}}</span>
+            </dd>
+            <dt><span>Status</span></dt>
+            <dd>
+                <span>{{interview.status}}</span>
+            </dd>
+            <dt><span>Comments</span></dt>
+            <dd>
+                <span>{{interview.comments}}</span>
+            </dd>
+        </dl>
+    </div>
+    <div class="modal-footer">
+            <button type="button" class="btn btn-light" [routerLink]="['/interview', interview.id, 'edit' ]" (click)="modal.close('Close click')">Edit</button>  
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+
