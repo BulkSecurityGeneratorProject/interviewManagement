@@ -1,10 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
-
+import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 import { ICandidate } from 'app/shared/model/candidate.model';
 import { AccountService } from 'app/core';
 import { CandidateService } from './candidate.service';
@@ -30,73 +29,85 @@ export class CandidateComponent implements OnInit, OnDestroy {
         protected activatedRoute: ActivatedRoute,
         protected accountService: AccountService
     ) {
-        this.currentSearchId =
+        this.currentSearchExperience = this.currentSearchEmail = this.currentSearchName = this.currentSearchId =
             this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
                 ? this.activatedRoute.snapshot.params['search']
                 : '';
-        this.currentSearchName =
-            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                ? this.activatedRoute.snapshot.params['search']
-                : '';
+        /*        this.currentSearchName =
+                    this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                        ? this.activatedRoute.snapshot.params['search']
+                        : '';
 
-        this.currentSearchEmail =
-            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                ? this.activatedRoute.snapshot.params['search']
-                : '';
+                 =
+                    this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                        ? this.activatedRoute.snapshot.params['search']
+                        : '';
 
-        this.currentSearchExperience =
-            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                ? this.activatedRoute.snapshot.params['search']
-                : '';
+                this.currentSearchExperience =
+                    this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                        ? this.activatedRoute.snapshot.params['search']
+                        : '';*/
     }
 
     loadAll() {
         if (this.currentSearchId) {
-            this.candidateService
-                .searchId({
-                    query: this.currentSearchId
-                })
-                .pipe(
-                    filter((res: HttpResponse<ICandidate[]>) => res.ok),
-                    map((res: HttpResponse<ICandidate[]>) => res.body)
-                )
-                .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
-            return;
+            this.searchOnId();
         } else if (this.currentSearchName) {
-            this.candidateService
-                .searchName({
-                    query: this.currentSearchName
-                })
-                .pipe(
-                    filter((res: HttpResponse<ICandidate[]>) => res.ok),
-                    map((res: HttpResponse<ICandidate[]>) => res.body)
-                )
-                .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
-            return;
+            this.searchOnName();
         } else if (this.currentSearchEmail) {
-            this.candidateService
-                .searchEmail({
-                    query: this.currentSearchEmail
-                })
-                .pipe(
-                    filter((res: HttpResponse<ICandidate[]>) => res.ok),
-                    map((res: HttpResponse<ICandidate[]>) => res.body)
-                )
-                .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
-            return;
+            this.searchOnEmail();
         } else if (this.currentSearchExperience) {
-            this.candidateService
-                .searchExperience({
-                    query: this.currentSearchExperience
-                })
-                .pipe(
-                    filter((res: HttpResponse<ICandidate[]>) => res.ok),
-                    map((res: HttpResponse<ICandidate[]>) => res.body)
-                )
-                .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
-            return;
+            this.searchOnExperience();
         }
         this.searchAllQuery();
+    }
+
+    private searchOnExperience() {
+        this.candidateService
+            .searchExperience({
+                query: this.currentSearchExperience
+            })
+            .pipe(
+                filter((res: HttpResponse<ICandidate[]>) => res.ok),
+                map((res: HttpResponse<ICandidate[]>) => res.body)
+            )
+            .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
+    }
+
+    private searchOnEmail() {
+        this.candidateService
+            .searchEmail({
+                query: this.currentSearchEmail
+            })
+            .pipe(
+                filter((res: HttpResponse<ICandidate[]>) => res.ok),
+                map((res: HttpResponse<ICandidate[]>) => res.body)
+            )
+            .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
+    }
+
+    private searchOnName() {
+        this.candidateService
+            .searchName({
+                query: this.currentSearchName
+            })
+            .pipe(
+                filter((res: HttpResponse<ICandidate[]>) => res.ok),
+                map((res: HttpResponse<ICandidate[]>) => res.body)
+            )
+            .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
+    }
+
+    private searchOnId() {
+        this.candidateService
+            .searchId({
+                query: this.currentSearchId
+            })
+            .pipe(
+                filter((res: HttpResponse<ICandidate[]>) => res.ok),
+                map((res: HttpResponse<ICandidate[]>) => res.body)
+            )
+            .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     private searchAllQuery() {

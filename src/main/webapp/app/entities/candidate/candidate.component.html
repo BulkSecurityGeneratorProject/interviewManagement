@@ -1,9 +1,10 @@
 <div>
     <h2 id="page-heading">
         <span>Candidates</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-candidate" [routerLink]="['/candidate/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-candidate"
+                [routerLink]="['/candidate/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down" >
+            <span class="hidden-sm-down">
             Create new Candidate
             </span>
         </button>
@@ -13,7 +14,8 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchId" id="currentSearchId" name="currentSearchId" placeholder="Search Id">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchId" id="currentSearchId"
+                           name="currentSearchId" placeholder="Search Id">
                     <button class="input-group-append btn btn-info" (click)="searchId(currentSearchId)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
@@ -26,11 +28,13 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchName" id="currentSearchName" name="currentSearchName" placeholder="Search Name">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchName" id="currentSearchName"
+                           name="currentSearchName" placeholder="Search Name">
                     <button class="input-group-append btn btn-info" (click)="searchName(currentSearchName)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
-                    <button class="input-group-append btn btn-danger" (click)="clearNameSearch()" *ngIf="currentSearchName">
+                    <button class="input-group-append btn btn-danger" (click)="clearNameSearch()"
+                            *ngIf="currentSearchName">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>
@@ -39,11 +43,13 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchEmail" id="currentSearchEmail" name="currentSearchEmail" placeholder="Search Email">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchEmail" id="currentSearchEmail"
+                           name="currentSearchEmail" placeholder="Search Email">
                     <button class="input-group-append btn btn-info" (click)="searchEmail(currentSearchEmail)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
-                    <button class="input-group-append btn btn-danger" (click)="clearEmailSearch()" *ngIf="currentSearchEmail">
+                    <button class="input-group-append btn btn-danger" (click)="clearEmailSearch()"
+                            *ngIf="currentSearchEmail">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>
@@ -52,30 +58,32 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchExperience" id="currentSearchExperience" name="currentSearchExperience" placeholder="Search Experience">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchExperience"
+                           id="currentSearchExperience" name="currentSearchExperience" placeholder="Search Experience">
                     <button class="input-group-append btn btn-info" (click)="searchExperience(currentSearchExperience)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
-                    <button class="input-group-append btn btn-danger" (click)="clearExperienceSearch()" *ngIf="currentSearchExperience">
+                    <button class="input-group-append btn btn-danger" (click)="clearExperienceSearch()"
+                            *ngIf="currentSearchExperience">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>
             </form>
         </div>
     </div>
-<br/>
+    <br/>
     <div class="table-responsive" *ngIf="candidates">
         <table class="table table-cell">
             <thead>
             <tr>
-            <th><span>ID</span></th>
-            <th><span>Name</span></th>
-            <th><span>Email</span></th>
-            <th><span>Phone No</span></th>
-            <th><span>Current Company</span></th>
-            <th><span>Experience</span></th>
-            <th><span>Position</span></th>
-            <th></th>
+                <th><span>ID</span></th>
+                <th><span>Name</span></th>
+                <th><span>Email</span></th>
+                <th><span>Phone No</span></th>
+                <th><span>Current Company</span></th>
+                <th><span>Experience</span></th>
+                <th><span>Position</span></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -106,5 +114,6 @@
             </tr>
             </tbody>
         </table>
+
     </div>
 </div>
