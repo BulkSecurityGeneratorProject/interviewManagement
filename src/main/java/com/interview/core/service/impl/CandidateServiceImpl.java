@@ -1,21 +1,16 @@
 package com.interview.core.service.impl;
 
-import com.interview.core.service.CandidateService;
 import com.interview.core.domain.Candidate;
 import com.interview.core.repository.CandidateRepository;
 import com.interview.core.repository.search.CandidateSearchRepository;
+import com.interview.core.service.CandidateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * Service Implementation for managing Candidate.
@@ -75,11 +70,11 @@ public class CandidateServiceImpl implements CandidateService {
     public Optional<Candidate> findOne(Long id) {
         log.debug("Request to get Candidate : {}", id);
         Optional<Candidate>  oc = candidateRepository.findById(id);
-        oc.ifPresent(candi -> { 
+        oc.ifPresent(candi -> {
             log.debug("****************", candi.getInterviews());
 });
 return oc;
-        
+
     }
 
     /**
@@ -100,11 +95,48 @@ return oc;
      * @return the list of entities
      */
     @Override
-    @Transactional(readOnly = true)
-    public List<Candidate> search(String query) {
+    public List<Candidate> searchId(String query) {
         log.debug("Request to search Candidates for query {}", query);
-        return StreamSupport
-            .stream(candidateSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        return candidateRepository.findOnQueryById(query);
     }
+
+    /**
+     * Search for the candidate corresponding to the query.
+     *
+     * @param query the query of the search
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Candidate> searchName(String query) {
+        log.debug("Request to search Candidates for query {}", query);
+        return candidateRepository.findOnQueryByName(query);
+    }
+
+    /**
+     * Search for the candidate corresponding to the query.
+     *
+     * @param query the query of the search
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Candidate> searchEmail(String query) {
+        log.debug("Request to search Candidates for query {}", query);
+        return candidateRepository.findOnQueryByEmail(query);
+    }
+
+    /**
+     * Search for the candidate corresponding to the query.
+     *
+     * @param query the query of the search
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Candidate> searchExperience(String query) {
+        log.debug("Request to search Candidates for query {}", query);
+        return candidateRepository.findOnQueryByExperience(query);
+    }
+
 }
