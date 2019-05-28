@@ -36,10 +36,9 @@ export class CandidateCreateComponent implements OnInit {
         this.candidateService.create(this.candidate).subscribe(res => {
             this.candidate = res.body;
             this.interview.candidate = this.candidate;
-            this.interviewService.create(this.interview).subscribe();
-            if (this.candidate.id) {
-                this.router.navigate(['/' + 'candidate' + '/' + this.candidate.id + '/view']);
-            }
+            this.interviewService.create(this.interview).subscribe(res => {
+                this.router.navigate(['/candidate/' + this.candidate.id + '/view']);
+            });
         });
     }
 
