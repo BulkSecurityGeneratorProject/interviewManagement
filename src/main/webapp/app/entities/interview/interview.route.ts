@@ -11,7 +11,7 @@ import { InterviewDetailComponent } from './interview-detail.component';
 import { InterviewUpdateComponent } from './interview-update.component';
 import { InterviewDeletePopupComponent } from './interview-delete-dialog.component';
 import { IInterview } from 'app/shared/model/interview.model';
-
+import { InterviewCreateComponent } from '../interview/interview-create.component';
 @Injectable({ providedIn: 'root' })
 export class InterviewResolve implements Resolve<IInterview> {
     constructor(private service: InterviewService) {}
@@ -52,7 +52,7 @@ export const interviewRoute: Routes = [
     },
     {
         path: 'new',
-        component: InterviewUpdateComponent,
+        component: InterviewCreateComponent,
         resolve: {
             interview: InterviewResolve
         },

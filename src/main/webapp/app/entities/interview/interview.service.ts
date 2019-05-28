@@ -4,16 +4,22 @@ import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { map } from 'rxjs/operators';
-
+import { BehaviorSubject, Subject } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { IInterview } from 'app/shared/model/interview.model';
+import { ICandidate } from 'app/shared/model/candidate.model';
 
 type EntityResponseType = HttpResponse<IInterview>;
 type EntityArrayResponseType = HttpResponse<IInterview[]>;
 
 @Injectable({ providedIn: 'root' })
 export class InterviewService {
+    // keeping current candidate id for create new interview use
+    public candidateId = new BehaviorSubject<any>('');
+    currentcandidateId = this.candidateId.asObservable();
+    //public candidate: ICandidate;
+
     public resourceUrl = SERVER_API_URL + 'api/interviews';
     public resourceSearchUrl = SERVER_API_URL + 'api/_search/interviews';
 

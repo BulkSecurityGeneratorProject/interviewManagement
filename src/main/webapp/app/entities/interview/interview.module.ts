@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { InterviewManagementSharedModule } from 'app/shared';
+import { InterviewCreateComponent } from '../interview/interview-create.component';
 import {
     InterviewComponent,
     InterviewDetailComponent,
@@ -21,9 +22,16 @@ const ENTITY_STATES = [...interviewRoute, ...interviewPopupRoute];
         InterviewDetailComponent,
         InterviewUpdateComponent,
         InterviewDeleteDialogComponent,
+        InterviewDeletePopupComponent,
+        InterviewCreateComponent
+    ],
+    entryComponents: [
+        InterviewComponent,
+        InterviewCreateComponent,
+        InterviewUpdateComponent,
+        InterviewDeleteDialogComponent,
         InterviewDeletePopupComponent
     ],
-    entryComponents: [InterviewComponent, InterviewUpdateComponent, InterviewDeleteDialogComponent, InterviewDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class InterviewManagementInterviewModule {}
