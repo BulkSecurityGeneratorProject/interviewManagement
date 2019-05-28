@@ -14,20 +14,6 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchId" id="currentSearchId"
-                           name="currentSearchId" placeholder="Search Id">
-                    <button class="input-group-append btn btn-info" (click)="searchId(currentSearchId)">
-                        <fa-icon [icon]="'search'"></fa-icon>
-                    </button>
-                    <button class="input-group-append btn btn-danger" (click)="clearIdSearch()" *ngIf="currentSearchId">
-                        <fa-icon [icon]="'trash-alt'"></fa-icon>
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div class="col-3">
-            <form name="searchForm">
-                <div class="input-group">
                     <input type="text" class="form-control" [(ngModel)]="currentSearchName" id="currentSearchName"
                            name="currentSearchName" placeholder="Search Name">
                     <button class="input-group-append btn btn-info" (click)="searchName(currentSearchName)">
@@ -65,6 +51,20 @@
                     </button>
                     <button class="input-group-append btn btn-danger" (click)="clearExperienceSearch()"
                             *ngIf="currentSearchExperience">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3">
+            <form name="searchForm">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchId" id="currentSearchId"
+                           name="currentSearchId" placeholder="Search Phone No">
+                    <button class="input-group-append btn btn-info" (click)="searchId(currentSearchId)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clearIdSearch()" *ngIf="currentSearchId">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>
