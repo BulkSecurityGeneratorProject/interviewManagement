@@ -75,11 +75,11 @@ public class CandidateServiceImpl implements CandidateService {
     public Optional<Candidate> findOne(Long id) {
         log.debug("Request to get Candidate : {}", id);
         Optional<Candidate>  oc = candidateRepository.findById(id);
-        oc.ifPresent(candi -> { 
+        oc.ifPresent(candi -> {
             log.debug("****************", candi.getInterviews());
 });
 return oc;
-        
+
     }
 
     /**
@@ -103,8 +103,7 @@ return oc;
     @Transactional(readOnly = true)
     public List<Candidate> search(String query) {
         log.debug("Request to search Candidates for query {}", query);
-        return StreamSupport
-            .stream(candidateSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        return candidateSearchRepository.findOnQuery(query);
+
     }
 }
