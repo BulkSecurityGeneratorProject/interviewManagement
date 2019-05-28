@@ -53,8 +53,8 @@ public class CandidateServiceImpl implements CandidateService {
     @Transactional(readOnly = true)
     public List<Candidate> findAll() {
         log.debug("Request to get all Candidates");
-        List<Candidate> lc=  candidateRepository.findAll();
-        log.debug("***************"+lc.get(0).getInterviews());
+        List<Candidate> lc = candidateRepository.findAll();
+        log.debug("***************" + lc.get(0).getInterviews());
         return lc;
     }
 
@@ -69,11 +69,11 @@ public class CandidateServiceImpl implements CandidateService {
     @Transactional(readOnly = true)
     public Optional<Candidate> findOne(Long id) {
         log.debug("Request to get Candidate : {}", id);
-        Optional<Candidate>  oc = candidateRepository.findById(id);
+        Optional<Candidate> oc = candidateRepository.findById(id);
         oc.ifPresent(candi -> {
             log.debug("****************", candi.getInterviews());
-});
-return oc;
+        });
+        return oc;
 
     }
 
@@ -84,7 +84,8 @@ return oc;
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Candidate : {}", id);        candidateRepository.deleteById(id);
+        log.debug("Request to delete Candidate : {}", id);
+        candidateRepository.deleteById(id);
         candidateSearchRepository.deleteById(id);
     }
 
@@ -94,15 +95,6 @@ return oc;
      * @param query the query of the search
      * @return the list of entities
      */
-<<<<<<< HEAD
-    // @Override
-    // @Transactional(readOnly = true)
-    // public List<Candidate> search(String query) {
-    //     log.debug("Request to search Candidates for query {}", query);
-    //     return candidateSearchRepository.findOnQuery(query);
-
-    // }
-=======
     @Override
     public List<Candidate> searchId(String query) {
         log.debug("Request to search Candidates for query {}", query);
@@ -148,5 +140,4 @@ return oc;
         return candidateRepository.findOnQueryByExperience(query);
     }
 
->>>>>>> 8abd84a7cfbf760094d89059dbb5f79bc64066ca
 }

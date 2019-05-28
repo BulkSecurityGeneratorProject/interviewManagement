@@ -1,4 +1,5 @@
 package com.interview.core.web.rest;
+
 import com.interview.core.domain.Candidate;
 import com.interview.core.service.CandidateService;
 import com.interview.core.web.rest.errors.BadRequestAlertException;
@@ -15,9 +16,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * REST controller for managing Candidate.
@@ -120,13 +118,6 @@ public class CandidateResource {
      * @param query the query of the candidate search
      * @return the result of the search
      */
-<<<<<<< HEAD
-    // @GetMapping("/_search/candidates")
-    // public List<Candidate> searchCandidates(@RequestParam String query) {
-    //     log.debug("REST request to search Candidates for query {}", query);
-    //     return candidateService.search(query);
-    // }
-=======
     @GetMapping("/_search/candidatesid")
     public List<Candidate> searchCandidatesById(@RequestParam String query) {
         log.debug("REST request to search Candidates for query {}", query);
@@ -171,6 +162,4 @@ public class CandidateResource {
         log.debug("REST request to search Candidates for query {}", query);
         return candidateService.searchExperience(query);
     }
->>>>>>> 8abd84a7cfbf760094d89059dbb5f79bc64066ca
-
 }

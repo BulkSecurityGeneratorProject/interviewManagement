@@ -48,9 +48,6 @@ public interface CandidateService {
      * 
      * @return the list of entities
      */
-<<<<<<< HEAD
-    // List<Candidate> search(String query);
-=======
     List<Candidate> searchId(String query);
 
     /**
@@ -63,7 +60,7 @@ public interface CandidateService {
     List<Candidate> searchName(String query);
 
     /**
-     * Search for the candidate corresponding to the name.
+     * Search for the candidate corresponding to the email.
      *
      * @param query the query of the search
      *
@@ -73,12 +70,11 @@ public interface CandidateService {
 
 
     /**
-     * Search for the candidate corresponding to the name.
+     * Search for the candidate corresponding to the experience.
      *
      * @param query the query of the search
      *
      * @return the list of entities
      */
     List<Candidate> searchExperience(String query);
->>>>>>> 8abd84a7cfbf760094d89059dbb5f79bc64066ca
 }
