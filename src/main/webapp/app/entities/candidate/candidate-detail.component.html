@@ -47,11 +47,12 @@
     <div class="col-7">
             <div class="row">
    
-                    <div class="col-3" *ngFor="let interview of candidate.interviews">
+                    <div class="col-4" *ngFor="let interview of candidate.interviews">
                         <div class="card">
                             <div class="card-header bg-info text-light">{{interview.level}}</div>
-                            <div class="card-body bg-secondary text-light">Interviewer:{{interview.interviewer}}
-                                status:{{interview.status}}
+                            <div class="card-body bg-secondary text-light">
+                                status: {{interview.status}}<br>
+                                DOI : {{interview.interviewDate}}
                             </div> 
                           </div>
                     </div>
