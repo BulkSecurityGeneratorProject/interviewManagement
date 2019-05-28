@@ -12,7 +12,10 @@ type EntityArrayResponseType = HttpResponse<ICandidate[]>;
 @Injectable({ providedIn: 'root' })
 export class CandidateService {
     public resourceUrl = SERVER_API_URL + 'api/candidates';
-    public resourceSearchUrl = SERVER_API_URL + 'api/_search/candidates';
+    public resourceSearchIdUrl = SERVER_API_URL + 'api/_search/candidatesid';
+    public resourceSearchNameUrl = SERVER_API_URL + 'api/_search/candidatesname';
+    public resourceSearchEmailUrl = SERVER_API_URL + 'api/_search/candidatesemail';
+    public resourceSearchExperienceUrl = SERVER_API_URL + 'api/_search/candidatesexperience';
 
     constructor(protected http: HttpClient) {}
 
@@ -37,8 +40,23 @@ export class CandidateService {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
-    search(req?: any): Observable<EntityArrayResponseType> {
+    searchId(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
-        return this.http.get<ICandidate[]>(this.resourceSearchUrl, { params: options, observe: 'response' });
+        return this.http.get<ICandidate[]>(this.resourceSearchIdUrl, { params: options, observe: 'response' });
+    }
+
+    searchName(req?: any): Observable<EntityArrayResponseType> {
+        const options = createRequestOption(req);
+        return this.http.get<ICandidate[]>(this.resourceSearchNameUrl, { params: options, observe: 'response' });
+    }
+
+    searchEmail(req?: any): Observable<EntityArrayResponseType> {
+        const options = createRequestOption(req);
+        return this.http.get<ICandidate[]>(this.resourceSearchEmailUrl, { params: options, observe: 'response' });
+    }
+
+    searchExperience(req?: any): Observable<EntityArrayResponseType> {
+        const options = createRequestOption(req);
+        return this.http.get<ICandidate[]>(this.resourceSearchExperienceUrl, { params: options, observe: 'response' });
     }
 }

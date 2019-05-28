@@ -42,11 +42,43 @@ public interface CandidateService {
     void delete(Long id);
 
     /**
-     * Search for the candidate corresponding to the query.
+     * Search for the candidate corresponding to the id.
      *
      * @param query the query of the search
      * 
      * @return the list of entities
      */
+<<<<<<< HEAD
     // List<Candidate> search(String query);
+=======
+    List<Candidate> searchId(String query);
+
+    /**
+     * Search for the candidate corresponding to the name.
+     *
+     * @param query the query of the search
+     *
+     * @return the list of entities
+     */
+    List<Candidate> searchName(String query);
+
+    /**
+     * Search for the candidate corresponding to the name.
+     *
+     * @param query the query of the search
+     *
+     * @return the list of entities
+     */
+    List<Candidate> searchEmail(String query);
+
+
+    /**
+     * Search for the candidate corresponding to the name.
+     *
+     * @param query the query of the search
+     *
+     * @return the list of entities
+     */
+    List<Candidate> searchExperience(String query);
+>>>>>>> 8abd84a7cfbf760094d89059dbb5f79bc64066ca
 }

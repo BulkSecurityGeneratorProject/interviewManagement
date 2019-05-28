@@ -120,10 +120,57 @@ public class CandidateResource {
      * @param query the query of the candidate search
      * @return the result of the search
      */
+<<<<<<< HEAD
     // @GetMapping("/_search/candidates")
     // public List<Candidate> searchCandidates(@RequestParam String query) {
     //     log.debug("REST request to search Candidates for query {}", query);
     //     return candidateService.search(query);
     // }
+=======
+    @GetMapping("/_search/candidatesid")
+    public List<Candidate> searchCandidatesById(@RequestParam String query) {
+        log.debug("REST request to search Candidates for query {}", query);
+        return candidateService.searchId(query);
+    }
+
+    /**
+     * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
+     * to the query.
+     *
+     * @param query the query of the candidate search
+     * @return the result of the search
+     */
+    @GetMapping("/_search/candidatesname")
+    public List<Candidate> searchCandidatesByName(@RequestParam String query) {
+        log.debug("REST request to search Candidates for query {}", query);
+        return candidateService.searchName(query);
+    }
+
+    /**
+     * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
+     * to the query.
+     *
+     * @param query the query of the candidate search
+     * @return the result of the search
+     */
+    @GetMapping("/_search/candidatesemail")
+    public List<Candidate> searchCandidatesByEmail(@RequestParam String query) {
+        log.debug("REST request to search Candidates for query {}", query);
+        return candidateService.searchEmail(query);
+    }
+
+    /**
+     * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
+     * to the query.
+     *
+     * @param query the query of the candidate search
+     * @return the result of the search
+     */
+    @GetMapping("/_search/candidatesexperience")
+    public List<Candidate> searchCandidatesByExperience(@RequestParam String query) {
+        log.debug("REST request to search Candidates for query {}", query);
+        return candidateService.searchExperience(query);
+    }
+>>>>>>> 8abd84a7cfbf760094d89059dbb5f79bc64066ca
 
 }

@@ -10,23 +10,62 @@
     </h2>
     <jhi-alert></jhi-alert>
     <div class="row">
-        <div class="col-sm-12">
-            <form name="searchForm" class="form-inline">
-                <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
-                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+        <div class="col-3">
+            <form name="searchForm">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchId" id="currentSearchId" name="currentSearchId" placeholder="Search Id">
+                    <button class="input-group-append btn btn-info" (click)="searchId(currentSearchId)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
-                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                    <button class="input-group-append btn btn-danger" (click)="clearIdSearch()" *ngIf="currentSearchId">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3">
+            <form name="searchForm">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchName" id="currentSearchName" name="currentSearchName" placeholder="Search Name">
+                    <button class="input-group-append btn btn-info" (click)="searchName(currentSearchName)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clearNameSearch()" *ngIf="currentSearchName">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3">
+            <form name="searchForm">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchEmail" id="currentSearchEmail" name="currentSearchEmail" placeholder="Search Email">
+                    <button class="input-group-append btn btn-info" (click)="searchEmail(currentSearchEmail)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clearEmailSearch()" *ngIf="currentSearchEmail">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-3">
+            <form name="searchForm">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchExperience" id="currentSearchExperience" name="currentSearchExperience" placeholder="Search Experience">
+                    <button class="input-group-append btn btn-info" (click)="searchExperience(currentSearchExperience)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clearExperienceSearch()" *ngIf="currentSearchExperience">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>
             </form>
         </div>
     </div>
-    <br/>
+<br/>
     <div class="table-responsive" *ngIf="candidates">
-        <table class="table table-striped">
+        <table class="table table-cell">
             <thead>
             <tr>
             <th><span>ID</span></th>
@@ -61,14 +100,6 @@
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'candidate', { outlets: { popup: candidate.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>
