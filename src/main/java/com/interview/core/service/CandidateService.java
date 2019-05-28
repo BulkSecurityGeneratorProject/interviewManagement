@@ -48,6 +48,9 @@ public interface CandidateService {
      * 
      * @return the list of entities
      */
+<<<<<<< HEAD
+    // List<Candidate> search(String query);
+=======
     List<Candidate> searchId(String query);
 
     /**
@@ -77,4 +80,5 @@ public interface CandidateService {
      * @return the list of entities
      */
     List<Candidate> searchExperience(String query);
+>>>>>>> 8abd84a7cfbf760094d89059dbb5f79bc64066ca
 }

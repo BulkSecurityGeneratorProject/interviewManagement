@@ -59,8 +59,12 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_status">Status</label>
-                    <input type="text" class="form-control" name="status" id="field_status"
-                        [(ngModel)]="interview.status" required/>
+                    <select type="text" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="interview.status" required>
+                        <option value="volvo">On Hold</option>
+                        <option value="saab">Selected</option>
+                        <option value="opel">Not Selected</option>
+                      </select>
                     <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.status?.errors?.required">
