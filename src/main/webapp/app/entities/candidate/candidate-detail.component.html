@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-5">
         <div *ngIf="candidate">
             <h2><span>Candidate</span> {{candidate.id}}</h2>
             <hr>
@@ -44,4 +44,17 @@
             </button>
         </div>
     </div>
+    <div class="col-7">
+            <div class="row">
+   
+                    <div class="col-3" *ngFor="let interview of candidate.interviews">
+                        <div class="card">
+                            <div class="card-header bg-info text-light">{{interview.level}}</div>
+                            <div class="card-body bg-secondary text-light">Interviewer:{{interview.interviewer}}
+                                status:{{interview.status}}
+                            </div> 
+                          </div>
+                    </div>
+    </div>
+</div>
 </div>
