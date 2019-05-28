@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ICandidate } from 'app/shared/model/candidate.model';
-
+import { InterviewService } from '../interview/interview.service';
 @Component({
     selector: 'jhi-candidate-detail',
     templateUrl: './candidate-detail.component.html'
 })
 export class CandidateDetailComponent implements OnInit {
     candidate: ICandidate;
-
-    constructor(protected activatedRoute: ActivatedRoute) {}
+    constructor(protected activatedRoute: ActivatedRoute, public interviewService: InterviewService) {}
 
     ngOnInit() {
         this.activatedRoute.data.subscribe(({ candidate }) => {
