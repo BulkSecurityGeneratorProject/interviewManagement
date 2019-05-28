@@ -11,7 +11,7 @@ import { CandidateDetailComponent } from './candidate-detail.component';
 import { CandidateUpdateComponent } from './candidate-update.component';
 import { CandidateDeletePopupComponent } from './candidate-delete-dialog.component';
 import { ICandidate } from 'app/shared/model/candidate.model';
-
+import { CandidateCreateComponent } from './candidate-create.component';
 @Injectable({ providedIn: 'root' })
 export class CandidateResolve implements Resolve<ICandidate> {
     constructor(private service: CandidateService) {}
@@ -52,7 +52,7 @@ export const candidateRoute: Routes = [
     },
     {
         path: 'new',
-        component: CandidateUpdateComponent,
+        component: CandidateCreateComponent,
         resolve: {
             candidate: CandidateResolve
         },
