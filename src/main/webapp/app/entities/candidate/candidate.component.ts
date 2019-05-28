@@ -11,7 +11,8 @@ import { CandidateService } from './candidate.service';
 
 @Component({
     selector: 'jhi-candidate',
-    templateUrl: './candidate.component.html'
+    templateUrl: './candidate.component.html',
+    styleUrls: ['candidate.component.scss']
 })
 export class CandidateComponent implements OnInit, OnDestroy {
     candidates: ICandidate[];
