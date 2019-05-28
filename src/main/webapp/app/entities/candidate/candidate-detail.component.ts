@@ -28,7 +28,8 @@ export class CandidateDetailComponent implements OnInit {
     }
 
     previousState() {
-        window.history.back();
+        // window.history.back();
+        this.router.navigate(['/candidate']);
     }
 
     openLg(content, interview) {
