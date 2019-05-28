@@ -52,11 +52,11 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchExp" id="currentSearchExp" name="currentSearchExp" placeholder="Search Experience">
-                    <button class="input-group-append btn btn-info" (click)="searchExperience(currentSearchExp)">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchExperience" id="currentSearchExperience" name="currentSearchExperience" placeholder="Search Experience">
+                    <button class="input-group-append btn btn-info" (click)="searchExperience(currentSearchExperience)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
-                    <button class="input-group-append btn btn-danger" (click)="clearExperienceSearch()" *ngIf="currentSearchExp">
+                    <button class="input-group-append btn btn-danger" (click)="clearExperienceSearch()" *ngIf="currentSearchExperience">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>
