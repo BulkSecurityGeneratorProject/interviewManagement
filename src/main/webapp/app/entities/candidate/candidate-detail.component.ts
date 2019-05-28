@@ -15,6 +15,7 @@ export class CandidateDetailComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.data.subscribe(({ candidate }) => {
             this.candidate = candidate;
+            this.interviewService.candidateId.next(this.candidate);
         });
     }
 

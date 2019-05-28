@@ -14,6 +14,10 @@ type EntityArrayResponseType = HttpResponse<IInterview[]>;
 
 @Injectable({ providedIn: 'root' })
 export class InterviewService {
+    // keeping current candidate id for create new interview use
+    public candidateId = new BehaviorSubject<any>('');
+    currentcandidateId = this.candidateId.asObservable();
+
     public resourceUrl = SERVER_API_URL + 'api/interviews';
     public resourceSearchUrl = SERVER_API_URL + 'api/_search/interviews';
 
