@@ -33,31 +33,21 @@ export class CandidateComponent implements OnInit, OnDestroy {
             this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
                 ? this.activatedRoute.snapshot.params['search']
                 : '';
-        /*        this.currentSearchName =
-                    this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                        ? this.activatedRoute.snapshot.params['search']
-                        : '';
-
-                 =
-                    this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                        ? this.activatedRoute.snapshot.params['search']
-                        : '';
-
-                this.currentSearchExperience =
-                    this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                        ? this.activatedRoute.snapshot.params['search']
-                        : '';*/
     }
 
     loadAll() {
         if (this.currentSearchId) {
             this.searchOnId();
+            return;
         } else if (this.currentSearchName) {
             this.searchOnName();
+            return;
         } else if (this.currentSearchEmail) {
             this.searchOnEmail();
+            return;
         } else if (this.currentSearchExperience) {
             this.searchOnExperience();
+            return;
         }
         this.searchAllQuery();
     }
