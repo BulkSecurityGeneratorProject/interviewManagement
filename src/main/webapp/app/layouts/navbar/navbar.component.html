@@ -1,4 +1,5 @@
 <nav class="navbar navbar-dark navbar-expand-md bg-dark" *ngIf="isAuthenticated()">
+    <!-- *ngIf="isAuthenticated()" -->
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
     </a>
@@ -142,3 +143,10 @@
         </ul>
     </div>
 </nav>
+
+<nav class="navbar navbar-dark navbar-expand-md bg-dark" *ngIf="!isAuthenticated()">
+        <!-- *ngIf="isAuthenticated()" -->
+        <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+            <span class="logo-img"></span>
+        </a>
+    </nav>

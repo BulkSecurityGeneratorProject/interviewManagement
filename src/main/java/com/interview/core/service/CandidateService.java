@@ -48,5 +48,5 @@ public interface CandidateService {
      * 
      * @return the list of entities
      */
-    List<Candidate> search(String query);
+    // List<Candidate> search(String query);
 }

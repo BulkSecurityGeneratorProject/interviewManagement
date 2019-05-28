@@ -120,10 +120,10 @@ public class CandidateResource {
      * @param query the query of the candidate search
      * @return the result of the search
      */
-    @GetMapping("/_search/candidates")
-    public List<Candidate> searchCandidates(@RequestParam String query) {
-        log.debug("REST request to search Candidates for query {}", query);
-        return candidateService.search(query);
-    }
+    // @GetMapping("/_search/candidates")
+    // public List<Candidate> searchCandidates(@RequestParam String query) {
+    //     log.debug("REST request to search Candidates for query {}", query);
+    //     return candidateService.search(query);
+    // }
 
 }

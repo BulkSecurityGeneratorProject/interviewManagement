@@ -99,11 +99,11 @@ return oc;
      * @param query the query of the search
      * @return the list of entities
      */
-    @Override
-    @Transactional(readOnly = true)
-    public List<Candidate> search(String query) {
-        log.debug("Request to search Candidates for query {}", query);
-        return candidateSearchRepository.findOnQuery(query);
+    // @Override
+    // @Transactional(readOnly = true)
+    // public List<Candidate> search(String query) {
+    //     log.debug("Request to search Candidates for query {}", query);
+    //     return candidateSearchRepository.findOnQuery(query);
 
-    }
+    // }
 }
