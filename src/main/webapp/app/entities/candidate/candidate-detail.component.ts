@@ -8,7 +8,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'jhi-candidate-detail',
-    templateUrl: './candidate-detail.component.html'
+    templateUrl: './candidate-detail.component.html',
+    styleUrls: ['./candidate-detail.component.scss']
 })
 export class CandidateDetailComponent implements OnInit {
     candidate: ICandidate;

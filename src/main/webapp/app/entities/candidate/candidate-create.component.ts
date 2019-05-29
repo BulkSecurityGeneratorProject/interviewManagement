@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { ICandidate, Candidate } from 'app/shared/model/candidate.model';
+import { Candidate, ICandidate } from 'app/shared/model/candidate.model';
 import { CandidateService } from './candidate.service';
 import { InterviewService } from '../interview/interview.service';
 
@@ -12,7 +11,7 @@ import { IInterview, Interview } from 'app/shared/model/interview.model';
 @Component({
     selector: 'jhi-candidate-create',
     templateUrl: './candidate-create.component.html',
-    styleUrls: ['./candidate-update.component.scss']
+    styleUrls: ['./candidate-create.component.scss']
 })
 export class CandidateCreateComponent implements OnInit {
     candidate: ICandidate;

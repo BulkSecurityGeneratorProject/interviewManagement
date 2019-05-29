@@ -2,3 +2,9 @@ thead {
     background-color: darkcyan;
     color: azure;
 }
+
+.flex-btn-group-container {
+    display: block;
+    flex-direction: row;
+    justify-content: flex-end;
+}

@@ -1,0 +1,101 @@
+.text-light {
+    background-color: #1f698bdb !important;
+    font-family: monospace;
+    font-size: 1.1em;
+    color: #f8f9fa !important;
+    font-variant-caps: all-small-caps;
+    font-stretch: normal;
+}
+
+.bg-info {
+    background-color: #051043eb !important;
+}
+
+.card-body-interviewer {
+    margin: 6px;
+}
+
+.h2-span-candidate-id {
+    color: white;
+    font-stretch: expanded;
+    background: steelblue;
+    font-family: monospace;
+    font-variant-caps: all-small-caps;
+}
+
+.modal-header {
+    font-variant-caps: all-small-caps;
+    color: #3c5266;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: 0.125rem;
+    border-top-right-radius: 0.125rem;
+    background: wheat;
+    font-family: sans-serif;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background: LIGHTSTEELBLUE;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border: 1px solid rgba(141, 165, 114, 0.73);
+    border-radius: 0.125rem;
+    outline: 0;
+}
+
+.btn-light:not(:disabled):not(.disabled):active,
+.btn-light:not(:disabled):not(.disabled).active,
+.show > .btn-light.dropdown-toggle {
+    color: #212529;
+    font-variant: all-small-caps;
+    font-family: sans-serif;
+    background-color: papayawhip;
+    border-color: #d3d9df;
+}
+
+.btn-light:hover {
+    color: black;
+    background-color: #4acae5bd;
+    border-color: #2f73ab;
+}
+
+.modal-footer {
+    display: flex;
+    background: wheat;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.3rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+}
+
+.btn-light {
+    font-family: initial;
+    font-variant-caps: all-petite-caps;
+}
+
+.modal-body {
+    color: sienna;
+    background: #d3dee78f;
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+dt {
+    color: black;
+}
+
+dd {
+    color: sienna;
+    font-family: sans-serif;
+    font-size: 1em;
+}

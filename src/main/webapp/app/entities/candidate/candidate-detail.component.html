@@ -1,10 +1,10 @@
 <div class="row justify-content-center">
-    <div class="col-5">
+    <div class="col-4">
         <div *ngIf="candidate">
-            <h2><span>Candidate</span> {{candidate.id}}</h2>
-            <hr>
+            <h2 class="h2-span-candidate-id">
+                <span>Candidate</span> {{candidate.id}}</h2>
             <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
+            <dl class="row-md jh-entity-details" style="background: #5fc4c3; padding: 5px">
                 <dt><span>Name</span></dt>
                 <dd>
                     <span>{{candidate.name}}</span>
@@ -42,35 +42,34 @@
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
-<button type="button"
+            <button type="button"
                     [routerLink]="['/interview','new']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> New Interview</span>
             </button>
         </div>
     </div>
-    <div class="col-7">
-            <div class="row">
-   
-                    <div class="col-4" *ngFor="let interview of candidate.interviews">
-                        <div class="card" (click)="openLg(content,interview)">
-                            <div class="card-header bg-info text-light">{{interview.level}}</div>
-                            <div class="card-body bg-secondary text-light">
-                                status: {{interview.status}}<br>
-                                DOI : {{interview.interviewDate}}
-                            </div> 
-                          </div>
+    <div class="col-8">
+        <div class="row">
+            <div class="col-4" *ngFor="let interview of candidate.interviews">
+                <div class="card card-body-interviewer" (click)="openLg(content,interview)">
+                    <div class="card-header bg-info text-light">{{interview.level}}</div>
+                    <div class="card-body bg-secondary text-light">
+                        status: {{interview.status}}<br>
+                        DOI : {{interview.interviewDate}}
                     </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </div>
 
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Interview Details</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <h4 class="modal-title">Interview Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
         <dl class="row-md jh-entity-details">
@@ -105,8 +104,10 @@
         </dl>
     </div>
     <div class="modal-footer">
-            <button type="button" class="btn btn-light" [routerLink]="['/interview', interview.id, 'edit' ]" (click)="modal.close('Close click')">Edit</button>  
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-light" [routerLink]="['/interview', interview.id, 'edit' ]"
+                (click)="modal.close('Close click')">Edit
+        </button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
     </div>
-  </ng-template>
+</ng-template>
 

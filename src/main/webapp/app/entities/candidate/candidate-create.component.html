@@ -1,63 +1,61 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-12">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
-                <h2 id="jhi-candidate-heading">Create A Candidate</h2>
-           
+            <h2 id="jhi-candidate-heading">Create A Candidate</h2>
+
             <div class="grid-container">
-                <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="header5">Candidate Information</h5>
+                    </div>
                     <div class="form-group">
-                        <label class="form-control-label" for="field_name">Name</label>
+                        <label class="form-control-label" for="field_name">Full Name</label>
                         <input type="text" class="form-control" name="name" id="field_name" [(ngModel)]="candidate.name"
-                            required />
+                               required/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_email">Email</label>
                         <input type="text" class="form-control" name="email" id="field_email"
-                            [(ngModel)]="candidate.email" required />
+                               [(ngModel)]="candidate.email" required/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_phoneNo">Phone No</label>
                         <input type="text" class="form-control" name="phoneNo" id="field_phoneNo"
-                            [(ngModel)]="candidate.phoneNo" required />
+                               [(ngModel)]="candidate.phoneNo" required/>
                     </div>
-                </div>
-                <div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_currentCompany">Current Company</label>
                         <input type="text" class="form-control" name="currentCompany" id="field_currentCompany"
-                            [(ngModel)]="candidate.currentCompany" />
+                               [(ngModel)]="candidate.currentCompany"/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_experience">Experience</label>
                         <input type="number" class="form-control" name="experience" id="field_experience"
-                            [(ngModel)]="candidate.experience" />
+                               [(ngModel)]="candidate.experience"/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_position">Position</label>
                         <input type="text" class="form-control" name="position" id="field_position"
-                            [(ngModel)]="candidate.position" />
+                               [(ngModel)]="candidate.position"/>
                     </div>
                 </div>
-            </div>
-            <br>
-            <h5>Interview Details</h5>
-            <br>
-            <div class="grid-container">
 
-                <div>
-
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="header5">Interviewer Information</h5>
+                    </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_level">Level</label>
-                        <input type="text" class="form-control" name="level" id="field_level" 
-                            [(ngModel)]="interview.level" required />
+                        <input type="text" class="form-control" name="level" id="field_level"
+                               [(ngModel)]="interview.level" required/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_interviewDate">Interview Date</label>
                         <div class="input-group">
                             <input id="field_interviewDate" type="text" class="form-control" name="interviewDate"
-                                ngbDatepicker #interviewDateDp="ngbDatepicker"
-                                [(ngModel)]="interview.interviewDate" required />
+                                   ngbDatepicker #interviewDateDp="ngbDatepicker"
+                                   [(ngModel)]="interview.interviewDate" required/>
                             <span class="input-group-append">
                                 <button type="button" class="btn btn-secondary" (click)="interviewDateDp.toggle()">
                                     <fa-icon [icon]="'calendar-alt'"></fa-icon>
@@ -68,47 +66,44 @@
                     <div class="form-group">
                         <label class="form-control-label" for="field_interviewerName">Interviewer Name</label>
                         <input type="text" class="form-control" name="interviewerName" id="field_interviewerName"
-                            [(ngModel)]="interview.interviewerName" required />
+                               [(ngModel)]="interview.interviewerName" required/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_interviewerEmail">Interviewer Email</label>
                         <input type="text" class="form-control" name="interviewerEmail" id="field_interviewerEmail"
-                            [(ngModel)]="interview.interviewerEmail" />
+                               [(ngModel)]="interview.interviewerEmail"/>
                     </div>
-                </div>
-                <div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_interviewerPhone">Interviewer Phone</label>
                         <input type="text" class="form-control" name="interviewerPhone" id="field_interviewerPhone"
-                            [(ngModel)]="interview.interviewerPhone" />
+                               [(ngModel)]="interview.interviewerPhone"/>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_status">Status</label>
                         <select type="text" class="form-control" name="status" id="field_status"
-                            [(ngModel)]="interview.status" required > 
+                                [(ngModel)]="interview.status" required>
                             <option value="On Hold">On Hold</option>
                             <option value="Selected">Selected</option>
                             <option value="Not Selected">Not Selected</option>
-                          </select>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="field_comments">Comments</label>
                         <input type="text" class="form-control" name="comments" id="field_comments"
-                            [(ngModel)]="interview.comments" />
+                               [(ngModel)]="interview.comments"/>
                     </div>
 
                 </div>
 
-            </div>
-
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
-                    class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
-                </button>
+                <div>
+                    <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                            class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                    </button>
+                    <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                    </button>
+                </div>
             </div>
         </form>
     </div>

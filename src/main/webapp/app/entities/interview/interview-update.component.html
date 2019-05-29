@@ -77,14 +77,6 @@
                     <input type="text" class="form-control" name="comments" id="field_comments"
                         [(ngModel)]="interview.comments" />
                 </div>
-
-                <!-- <div class="form-group">
-                    <label class="form-control-label" for="field_candidate">Candidate</label>
-                    <select class="form-control" id="field_candidate" name="candidate" [(ngModel)]="interview.candidate" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="candidateOption.id === interview.candidate?.id ? interview.candidate : candidateOption" *ngFor="let candidateOption of candidates; trackBy: trackCandidateById">{{candidateOption.id}}</option>
-                    </select>
-                </div> -->
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
