@@ -8,7 +8,8 @@ import { CandidateService } from './candidate.service';
 
 @Component({
     selector: 'jhi-candidate-update',
-    templateUrl: './candidate-update.component.html'
+    templateUrl: './candidate-update.component.html',
+    styleUrls: ['./candidate-update.component.scss']
 })
 export class CandidateUpdateComponent implements OnInit {
     candidate: ICandidate;
