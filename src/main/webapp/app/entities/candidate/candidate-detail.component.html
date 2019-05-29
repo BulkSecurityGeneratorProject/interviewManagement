@@ -4,7 +4,7 @@
             <h2 class="h2-span-candidate-id">
                 <span>Candidate</span> {{candidate.id}}</h2>
             <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details" style="background: #5fc4c3; padding: 5px">
+            <dl class="row-md jh-entity-details">
                 <dt><span>Name</span></dt>
                 <dd>
                     <span>{{candidate.name}}</span>
@@ -73,31 +73,31 @@
     </div>
     <div class="modal-body">
         <dl class="row-md jh-entity-details">
-            <dt><span>Level</span></dt>
+            <dt *ngIf="interview.level"><span>Level</span></dt>
             <dd>
                 <span>{{interview.level}}</span>
             </dd>
-            <dt><span>Interview Date</span></dt>
+            <dt *ngIf="interview.interviewDate"><span>Interview Date</span></dt>
             <dd>
                 <span>{{interview.interviewDate}}</span>
             </dd>
-            <dt><span>Interviewer Name</span></dt>
+            <dt *ngIf="interview.interviewerName"><span>Interviewer Name</span></dt>
             <dd>
                 <span>{{interview.interviewerName}}</span>
             </dd>
-            <dt><span>Interviewer Email</span></dt>
+            <dt *ngIf="interview.interviewerEmail"><span>Interviewer Email</span></dt>
             <dd>
                 <span>{{interview.interviewerEmail}}</span>
             </dd>
-            <dt><span>Interviewer Phone</span></dt>
+            <dt *ngIf="interview.interviewerPhone"><span>Interviewer Phone</span></dt>
             <dd>
                 <span>{{interview.interviewerPhone}}</span>
             </dd>
-            <dt><span>Status</span></dt>
+            <dt *ngIf="interview.status"><span>Status</span></dt>
             <dd>
                 <span>{{interview.status}}</span>
             </dd>
-            <dt><span>Comments</span></dt>
+            <dt *ngIf="interview.comments"><span>Comments</span></dt>
             <dd>
                 <span>{{interview.comments}}</span>
             </dd>
