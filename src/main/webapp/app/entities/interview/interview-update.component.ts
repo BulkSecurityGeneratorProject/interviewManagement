@@ -12,7 +12,8 @@ import { CandidateService } from 'app/entities/candidate';
 
 @Component({
     selector: 'jhi-interview-update',
-    templateUrl: './interview-update.component.html'
+    templateUrl: './interview-update.component.html',
+    styleUrls: ['./interview-update.component.scss']
 })
 export class InterviewUpdateComponent implements OnInit {
     interview: IInterview;
