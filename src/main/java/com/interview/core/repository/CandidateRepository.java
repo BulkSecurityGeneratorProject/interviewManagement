@@ -16,7 +16,7 @@ import java.util.List;
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
     @Query(value = "select * from candidate c where c.phone_no like %:query%", nativeQuery = true)
-    List<Candidate> findOnQueryById(@Param("query") String id);
+    List<Candidate> findOnQueryByPhoneNo(@Param("query") String id);
 
     @Query(value = "select * from candidate c where c.name like %:query%", nativeQuery = true)
     List<Candidate> findOnQueryByName(@Param("query") String query);

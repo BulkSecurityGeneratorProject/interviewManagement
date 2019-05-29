@@ -115,20 +115,20 @@ public class CandidateResource {
      * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
      * to the query.
      *
-     * @param query the query of the candidate search
+     * @param query the query of the candidate search on phoneno.
      * @return the result of the search
      */
-    @GetMapping("/_search/candidatesid")
-    public List<Candidate> searchCandidatesById(@RequestParam String query) {
+    @GetMapping("/_search/candidatesphone")
+    public List<Candidate> searchCandidatesByPhoneNo(@RequestParam String query) {
         log.debug("REST request to search Candidates for query {}", query);
-        return candidateService.searchId(query);
+        return candidateService.searchPhoneNo(query);
     }
 
     /**
-     * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
+     * SEARCH  /_search/candidatesname?query=:query : search for the candidate corresponding
      * to the query.
      *
-     * @param query the query of the candidate search
+     * @param query the query of the candidate name search on name
      * @return the result of the search
      */
     @GetMapping("/_search/candidatesname")
@@ -138,10 +138,10 @@ public class CandidateResource {
     }
 
     /**
-     * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
+     * SEARCH  /_search/candidatesemail?query=:query : search for the candidate corresponding
      * to the query.
      *
-     * @param query the query of the candidate search
+     * @param query the query of the candidate search on email.
      * @return the result of the search
      */
     @GetMapping("/_search/candidatesemail")
@@ -151,10 +151,10 @@ public class CandidateResource {
     }
 
     /**
-     * SEARCH  /_search/candidates?query=:query : search for the candidate corresponding
+     * SEARCH  /_search/candidatesexperience?query=:query : search for the candidate corresponding
      * to the query.
      *
-     * @param query the query of the candidate search
+     * @param query the query of the candidate search on experience.
      * @return the result of the search
      */
     @GetMapping("/_search/candidatesexperience")

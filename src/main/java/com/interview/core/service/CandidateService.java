@@ -21,7 +21,7 @@ public interface CandidateService {
     /**
      * Get all the candidates.
      *
-     * @return the list of entities
+     * @return the list of candidate.
      */
     List<Candidate> findAll();
 
@@ -48,7 +48,7 @@ public interface CandidateService {
      * 
      * @return the list of entities
      */
-    List<Candidate> searchId(String query);
+    List<Candidate> searchPhoneNo(String query);
 
     /**
      * Search for the candidate corresponding to the name.

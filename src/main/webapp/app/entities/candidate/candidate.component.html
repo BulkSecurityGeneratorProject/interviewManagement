@@ -59,12 +59,12 @@
         <div class="col-3">
             <form name="searchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearchId" id="currentSearchId"
+                    <input type="text" class="form-control" [(ngModel)]="currentSearchPhoneNo" id="currentSearchId"
                            name="currentSearchId" placeholder="Search Phone No">
-                    <button class="input-group-append btn btn-info" (click)="searchId(currentSearchId)">
+                    <button class="input-group-append btn btn-info" (click)="searchPhoneNo(currentSearchPhoneNo)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
-                    <button class="input-group-append btn btn-danger" (click)="clearIdSearch()" *ngIf="currentSearchId">
+                    <button class="input-group-append btn btn-danger" (click)="clearPhonNoSearch()" *ngIf="currentSearchPhoneNo">
                         <fa-icon [icon]="'trash-alt'"></fa-icon>
                     </button>
                 </div>

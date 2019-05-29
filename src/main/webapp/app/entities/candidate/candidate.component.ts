@@ -17,7 +17,7 @@ export class CandidateComponent implements OnInit, OnDestroy {
     candidates: ICandidate[];
     currentAccount: any;
     eventSubscriber: Subscription;
-    currentSearchId: string;
+    currentSearchPhoneNo: string;
     currentSearchName: string;
     currentSearchEmail: string;
     currentSearchExperience: string;
@@ -29,15 +29,15 @@ export class CandidateComponent implements OnInit, OnDestroy {
         protected activatedRoute: ActivatedRoute,
         protected accountService: AccountService
     ) {
-        this.currentSearchExperience = this.currentSearchEmail = this.currentSearchName = this.currentSearchId =
+        this.currentSearchExperience = this.currentSearchEmail = this.currentSearchName = this.currentSearchPhoneNo =
             this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
                 ? this.activatedRoute.snapshot.params['search']
                 : '';
     }
 
     loadAll() {
-        if (this.currentSearchId) {
-            this.searchOnId();
+        if (this.currentSearchPhoneNo) {
+            this.searchOnPhonNo();
             return;
         } else if (this.currentSearchName) {
             this.searchOnName();
@@ -88,10 +88,10 @@ export class CandidateComponent implements OnInit, OnDestroy {
             .subscribe((res: ICandidate[]) => (this.candidates = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
-    private searchOnId() {
+    private searchOnPhonNo() {
         this.candidateService
-            .searchId({
-                query: this.currentSearchId
+            .searchPhoneNo({
+                query: this.currentSearchPhoneNo
             })
             .pipe(
                 filter((res: HttpResponse<ICandidate[]>) => res.ok),
@@ -110,7 +110,7 @@ export class CandidateComponent implements OnInit, OnDestroy {
             .subscribe(
                 (res: ICandidate[]) => {
                     this.candidates = res;
-                    this.currentSearchId = '';
+                    this.currentSearchPhoneNo = '';
                     this.currentSearchName = '';
                     this.currentSearchEmail = '';
                     this.currentSearchExperience = '';
@@ -119,11 +119,11 @@ export class CandidateComponent implements OnInit, OnDestroy {
             );
     }
 
-    searchId(query) {
+    searchPhoneNo(query) {
         if (!query) {
-            return this.clearIdSearch();
+            return this.clearPhonNoSearch();
         }
-        this.currentSearchId = query;
+        this.currentSearchPhoneNo = query;
         this.loadAll();
     }
 
@@ -151,8 +151,8 @@ export class CandidateComponent implements OnInit, OnDestroy {
         this.loadAll();
     }
 
-    clearIdSearch() {
-        this.currentSearchId = '';
+    clearPhonNoSearch() {
+        this.currentSearchPhoneNo = '';
         this.loadAll();
     }
 

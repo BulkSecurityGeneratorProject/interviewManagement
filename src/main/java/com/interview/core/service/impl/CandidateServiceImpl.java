@@ -6,6 +6,7 @@ import com.interview.core.repository.search.CandidateSearchRepository;
 import com.interview.core.service.CandidateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,14 +22,11 @@ public class CandidateServiceImpl implements CandidateService {
 
     private final Logger log = LoggerFactory.getLogger(CandidateServiceImpl.class);
 
-    private final CandidateRepository candidateRepository;
+    @Autowired
+    private CandidateRepository candidateRepository;
 
-    private final CandidateSearchRepository candidateSearchRepository;
-
-    public CandidateServiceImpl(CandidateRepository candidateRepository, CandidateSearchRepository candidateSearchRepository) {
-        this.candidateRepository = candidateRepository;
-        this.candidateSearchRepository = candidateSearchRepository;
-    }
+    @Autowired
+    private CandidateSearchRepository candidateSearchRepository;
 
     /**
      * Save a candidate.
@@ -38,7 +36,6 @@ public class CandidateServiceImpl implements CandidateService {
      */
     @Override
     public Candidate save(Candidate candidate) {
-        log.debug("Request to save Candidate : {}", candidate);
         Candidate result = candidateRepository.save(candidate);
         candidateSearchRepository.save(result);
         return result;
@@ -52,10 +49,7 @@ public class CandidateServiceImpl implements CandidateService {
     @Override
     @Transactional(readOnly = true)
     public List<Candidate> findAll() {
-        log.debug("Request to get all Candidates");
-        List<Candidate> lc = candidateRepository.findAll();
-        log.debug("***************" + lc.get(0).getInterviews());
-        return lc;
+        return candidateRepository.findAll();
     }
 
 
@@ -68,7 +62,6 @@ public class CandidateServiceImpl implements CandidateService {
     @Override
     @Transactional(readOnly = true)
     public Optional<Candidate> findOne(Long id) {
-        log.debug("Request to get Candidate : {}", id);
         Optional<Candidate> oc = candidateRepository.findById(id);
         oc.ifPresent(candi -> {
             log.debug("****************", candi.getInterviews());
@@ -84,7 +77,6 @@ public class CandidateServiceImpl implements CandidateService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Candidate : {}", id);
         candidateRepository.deleteById(id);
         candidateSearchRepository.deleteById(id);
     }
@@ -96,9 +88,8 @@ public class CandidateServiceImpl implements CandidateService {
      * @return the list of entities
      */
     @Override
-    public List<Candidate> searchId(String query) {
-        log.debug("Request to search Candidates for query {}", query);
-        return candidateRepository.findOnQueryById(query);
+    public List<Candidate> searchPhoneNo(String query) {
+        return candidateRepository.findOnQueryByPhoneNo(query);
     }
 
     /**
@@ -110,7 +101,6 @@ public class CandidateServiceImpl implements CandidateService {
     @Override
     @Transactional(readOnly = true)
     public List<Candidate> searchName(String query) {
-        log.debug("Request to search Candidates for query {}", query);
         return candidateRepository.findOnQueryByName(query);
     }
 
@@ -123,7 +113,6 @@ public class CandidateServiceImpl implements CandidateService {
     @Override
     @Transactional(readOnly = true)
     public List<Candidate> searchEmail(String query) {
-        log.debug("Request to search Candidates for query {}", query);
         return candidateRepository.findOnQueryByEmail(query);
     }
 
@@ -136,7 +125,6 @@ public class CandidateServiceImpl implements CandidateService {
     @Override
     @Transactional(readOnly = true)
     public List<Candidate> searchExperience(String query) {
-        log.debug("Request to search Candidates for query {}", query);
         return candidateRepository.findOnQueryByExperience(query);
     }
 
